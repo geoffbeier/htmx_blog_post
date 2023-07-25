@@ -1,0 +1,9 @@
+<div id="vacation_list_wrapper" hx-swap-oob="outerHTML">
+    <ul>
+        {% for trip in trips %}
+            <li>{{ trip }}</li>
+        {% empty %}
+            <li>No vacations planned...</li>
+        {% endfor %}
+    </ul>
+</div>

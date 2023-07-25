@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "trip-builder"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+license = "BSD-2"
+readme = "README.md"
+packages = [{include = "trip_builder"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.3"
+django-htmx = "^1.16.0"
+django-extensions = "^3.2.3"
+django-widget-tweaks = "^1.4.12"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
+black = "^23.7.0"
+djhtml = "^3.0.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

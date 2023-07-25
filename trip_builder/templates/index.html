@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Vacations{% endblock %}
+{% block content %}
+    <h1>Vacations for {{ request.user }}</h1>
+    {% include "vacation_list.html" %}
+    <hr>
+    <div id="new_vacation_wrapper">
+        <button hx-get="{% url 'trip_builder:new_vacation' %}" hx-swap="innerHTML" hx-target="#new_vacation_wrapper">Create a Vacation</button>
+    </div>
+{% endblock content %}

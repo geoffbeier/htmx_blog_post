@@ -1,0 +1,6 @@
+{% load widget_tweaks %}
+<div id="itinerary_wrapper">
+    {% if form.fields.itinerary.choices|length > 1 %}
+        {% render_field form.itinerary %}
+    {% endif %}
+</div>

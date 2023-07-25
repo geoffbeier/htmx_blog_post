@@ -1,0 +1,4 @@
+{% include 'vacation_list.html' %}
+<div id="new_vacation_wrapper" hx-swap-oob="outerHTML">
+    <button hx-get="{% url 'trip_builder:new_vacation' %}" hx-swap="innerHTML" hx-target="#new_vacation_wrapper">Create a Vacation</button>
+</div>

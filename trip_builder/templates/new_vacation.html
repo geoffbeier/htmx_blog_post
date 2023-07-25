@@ -1,0 +1,13 @@
+{% load widget_tweaks %}
+<form hx-post="{% url 'trip_builder:new_vacation' %}">
+    <div id="name_wrapper">
+        {% render_field form.name placeholder="Enter a name for your trip" %}
+    </div>
+    <div id="country_wrapper">
+        {% url 'trip_builder:country_itineraries' as find_available_itineraries %}
+        {% render_field form.country hx-post=find_available_itineraries hx-target="#itinerary_wrapper" hx-swap="outerHTML" %}
+    </div>
+    {% include "itinerary_choice.html" %}
+    <button type="submit">Save</button>
+    <button hx-get="{% url 'trip_builder:new_vacation' %}?reset=True">Cancel</button>
+</form>

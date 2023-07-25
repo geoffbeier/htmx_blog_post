@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}How I Start Blog Post{% endblock %}</title>
+        <script defer src="{% static "js/htmx/htmx.min.js" %}"></script>
+        <script defer src="{% static "js/alpine/alpine.min.js" %}"></script>
+    </head>
+    <body>
+        {% block content %}
+            <h1>Hello, HTMX</h1>
+            <div x-data="{
+                         hello_message: 'Hello, Alpine'
+                         }">
+                <h1 x-text="hello_message"></h1>
+            </div>
+        {% endblock %}
+        <script>
+            document.body.addEventListener('htmx:configRequest', (event) => {
+                event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}'; //insert csrf token when performing AJAX request
+            })
+        </script>
+    </body>
+</html>
